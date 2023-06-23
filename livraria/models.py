@@ -27,6 +27,6 @@ class Livro(models.Model):
     isbn = models.CharField(max_length=32, null=True, blank=True)
     quantidade = models.IntegerField(default=0)
     preco = models.DecimalField(max_digits=7, decimal_places=2, default=0)
-
+    autores = models.ManyToManyField(Autor, related_name="livros")
     def __str__(self):
         return f"{self.titulo} ({self.quantidade})"
